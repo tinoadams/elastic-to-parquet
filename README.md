@@ -1,11 +1,11 @@
-# Elastic to parquet
+# OpenSearch to parquet
 
-Elastic to parquet is command line tool to offload elasticsearch index into a parquet file
+OpenSearch to parquet is command line tool to offload OpenSearch index into a parquet file
 
 These are some usage scenarios:
 
 ```
-python main.py --elasticsearchUrl https://username:password@localhost:9200/  --indexName application_logs_idex --fields field1,field2,field3.subfield1
+python main.py --elasticsearchUrl https://username:password@localhost:9200/  --indexName application_logs_idex
 ```
 
 Also there are some extra parameters
@@ -18,6 +18,13 @@ Also there are some extra parameters
 --chunk : this parameter is used for adjusting scroll size for reading elasticsearch index (default is 1000)
 ```
 
+# Dev container
+
+Run all the python things in a container
+
 ```
---keepCSV : this parameter is used to keep CSV file after converting it to parquet format, it is optional if you don't use this paramater intermediate CSV file is deleted by default
+./container.sh
+python -m venv ./venv
+source ./venv/bin/activate
+pip install -r ./requirements.txt
 ```
